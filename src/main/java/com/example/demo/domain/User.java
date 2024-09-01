@@ -1,15 +1,20 @@
 package com.example.demo.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,15 +29,24 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  Long id;
+  private Long id;
+  @Column(nullable = false, unique = true)
+  private String userId;
+  @Column(nullable = false)
+  private String password;
+  @Column(nullable = false, unique = true)
+  private String eMail;
+  @Column(nullable = false, unique = true,length = 50)
+  private String phoneNumber;
   @Column(nullable = false, unique = true,length = 20)
-  String userId;
-  @Column(nullable = false,length = 255)
-  String password;
-  @Column(nullable = false, unique = true,length = 100)
-  String eMail;
-  @Column(nullable = false, unique = true,length = 20)
-  String phoneNumber;
+  private String userState;
+
+  @OneToMany(mappedBy = "UserId")
+  private List<Like> like;
+
+  @OneToMany(mappedBy = "UserId")
+  private List<CarPost> carPost;
+
 
   @Column(updatable = false)
   @CreationTimestamp
