@@ -28,24 +28,21 @@ public class CarPost {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
-
+  private String carModel;
+  private String brand;
+  private String carType;
+  private int mileage;
   private int price;
-  @ManyToOne
-  @JoinColumn(name = "CarType")
-  private CarType carTypeId;
+  private String displacement;
+  private String color;
 
   @ManyToOne
   @JoinColumn(name = "userId")
   private User userId;
 
-/*  @ManyToOne
+  @ManyToOne
   @JoinColumn(name = "CarImages")
-  private CarImages carImagesId;*/
-
-  @OneToMany(mappedBy = "CarType")
-  private List<Like> like;
-
-  //private String carImageURL;
+  private CarImages carImagesId;
 
   @Column(updatable = false)
   @CreationTimestamp
