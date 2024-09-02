@@ -38,10 +38,10 @@ public class User {
   @Column(nullable = false, unique = true, length = 20)
   private String userState;
 
-  @OneToMany(mappedBy = "UserId")
-  private List<Like> like;
+  @OneToMany(mappedBy = "userId")
+  private List<Likes> likes;
 
-  @OneToMany(mappedBy = "UserId")
+  @OneToMany(mappedBy = "userId")
   private List<CarPost> carPost;
 
 

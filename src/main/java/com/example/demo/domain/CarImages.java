@@ -28,6 +28,6 @@ public class CarImages {
   @CreationTimestamp
   private LocalDateTime createdAt;
 
-  @OneToMany(mappedBy = "CarImages")
+  @OneToMany(mappedBy = "carImages")
   private List<CarPost> CarPost;
 }

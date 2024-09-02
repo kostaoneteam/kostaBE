@@ -1,7 +1,6 @@
 package com.example.demo.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,16 +8,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "like")
+@Table(name = "likes")
 @Getter
 @Setter
 @NoArgsConstructor
-public class Like {
+public class Likes {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,5 +32,8 @@ public class Like {
   @ManyToOne
   @JoinColumn(name = "post_id")
   private CarPost poseId;
+
+  @CreationTimestamp
+  private LocalDateTime createdAt;
 
 }
