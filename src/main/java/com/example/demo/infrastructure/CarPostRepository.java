@@ -1,5 +1,10 @@
 package com.example.demo.infrastructure;
 
-public interface CarPostRepository {
+
+import com.example.demo.domain.CarPost;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface CarPostRepository extends JpaRepository<CarPost, Long> {
+
 
 }
