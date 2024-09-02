@@ -1,2 +1,5 @@
-package com.example.demo.presentation;public class CarPostController {
+package com.example.demo.presentation;
+
+public class CarPostController {
+
 }

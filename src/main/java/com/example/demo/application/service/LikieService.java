@@ -1,2 +1,5 @@
-package com.example.demo.application.service;public class LikieService {
+package com.example.demo.application.service;
+
+public class LikieService {
+
 }

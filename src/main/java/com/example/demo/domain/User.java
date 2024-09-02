@@ -1,14 +1,11 @@
 package com.example.demo.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -36,9 +33,9 @@ public class User {
   private String password;
   @Column(nullable = false, unique = true)
   private String eMail;
-  @Column(nullable = false, unique = true,length = 50)
+  @Column(nullable = false, unique = true, length = 50)
   private String phoneNumber;
-  @Column(nullable = false, unique = true,length = 20)
+  @Column(nullable = false, unique = true, length = 20)
   private String userState;
 
   @OneToMany(mappedBy = "UserId")
@@ -55,12 +52,12 @@ public class User {
   private LocalDateTime deletedAt;
 
   @PrePersist
-      @PreUpdate
-      protected void onUpdateTimestamp() {
-          if (createdAt == null) {
-              createdAt = LocalDateTime.now();
-          } else {
-              updatedAt = LocalDateTime.now();
-          }
-      }
+  @PreUpdate
+  protected void onUpdateTimestamp() {
+    if (createdAt == null) {
+      createdAt = LocalDateTime.now();
+    } else {
+      updatedAt = LocalDateTime.now();
+    }
+  }
 }
