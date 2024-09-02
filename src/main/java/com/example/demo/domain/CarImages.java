@@ -21,7 +21,7 @@ import org.hibernate.annotations.CreationTimestamp;
 public class CarImages {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.IDENTITY) // 엔티티의 PK 자동 생성
   private Long id;
   private String carImagesURL;
 

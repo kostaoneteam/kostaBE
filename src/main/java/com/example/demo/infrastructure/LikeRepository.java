@@ -1,5 +1,2 @@
-package com.example.demo.infrastructure;
-
-public interface LikeRepository {
-
+package com.example.demo.infrastructure;public interface LikeRepository {
 }
