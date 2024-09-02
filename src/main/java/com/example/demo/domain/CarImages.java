@@ -29,5 +29,5 @@ public class CarImages {
   private LocalDateTime createdAt;
 
   @OneToMany(mappedBy = "CarImages")
-  private List<CarType> carType;
+  private List<CarPost> CarPost;
 }
