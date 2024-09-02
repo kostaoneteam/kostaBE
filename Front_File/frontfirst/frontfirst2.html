@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="style2.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet"> -->
+    <script src="https://kit.fontawesome.com/def66b134a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    
+    <!-- 확인용 스크립트 지우거나 js 파일로 옮겨주기 -->
+    <script>
+     function clearTextarea() {
+        document.getElementById('input-search').value = '';
+      }
+      </script>
+    <title>Document</title>
+</head>
+<body>
+<div class="container">
+<!-- header -->
+    <header class="main-header">
+        <div class="header_intrio">
+            <div class="header-title">
+                <h1 >로고 자리</h1>
+            </div>
+            <div class="header-content">
+<!-- nav -->  
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">내가 쓴 글</a></li>
+                    </ul>
+                </nav>        
+<!-- search -->
+                <div class="search">
+                    <form action="">
+                        <input type="text" class="input-search" value="차 이름을 검색해주세요." id="input-search" onclick="clearTextarea()" >
+                        <input type= "submit" class="input-search-submit" value="검색">
+                    </form>
+                </div>                  
+            </div>
+        </div>
+    </header>
+<div class="main-menu">
+
+    <!-- aside -->
+
+    <aside class="">
+        <div class="accordion">
+            <input type="checkbox" id="car_select01">
+            <label for="car_select01">제 조 사<img src="./arrow down.png"></img></label>
+            <div class="sidebar"  >
+                <div class="brand" >
+                    <ul class="">
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-brand="1">
+                            <label for="select01" style="font-size: 20px;" >현대</label>
+                        </li>  
+                        <li>
+                            <input type="checkbox" class="" id="select02" data-car-brand="2">
+                            <label for="select02" style="font-size: 20px;" >기아</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select03" data-car-brand="3">
+                            <label for="select03" style="font-size: 20px;" >제네시스</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select04" data-car-brand="4">
+                            <label for="select04" style="font-size: 20px;" >쉐보레(GM대우)</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select05" data-car-brand="5">
+                            <label for="select05" style="font-size: 20px;" >르노코리아(삼성)</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select06" data-car-brand="6">
+                            <label for="select06" style="font-size: 20px;" >KG모빌리티(쌍용)</label>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+
+            <input type="checkbox" id="car_select02">
+            <label for="car_select02">차 량 종 류<img src="./arrow down.png"></img></label>
+            <div class="sidebar" >
+                <div class="carTypeld" >
+                    <ul class="">
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-Typeld="1">
+                            <label for="select01" style="font-size: 20px;" >경차</label>
+                        </li>  
+                        <li>
+                            <input type="checkbox" class="" id="select02" data-car-Typeld="2">
+                            <label for="select02" style="font-size: 20px;" >소형차</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select03" data-car-Typeld="3">
+                            <label for="select03" style="font-size: 20px;" >중형차</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select04" data-car-Typeld="4">
+                            <label for="select04" style="font-size: 20px;" >대형차</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select05" data-car-Typeld="5">
+                            <label for="select05" style="font-size: 20px;" >스포츠카</label>
+                        </li> 
+                        <li>
+                            <input type="checkbox" class="" id="select06" data-car-Typeld="6">
+                            <label for="select06" style="font-size: 20px;" >SUV</label>
+                        </li> 
+                    </ul>
+                </div>
+            </div>
+
+            <input type="checkbox" id="car_select03">
+            <label for="car_select03">배 기 량<img src="./arrow down.png"></img></label>
+            <div class="sidebar" >
+                <div class="displacement" >
+                    <ul class="">
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-displacement="1">
+                            <label for="select01" style="font-size: 20px;" >경차 1000cc 미만</label>
+                        </li>              
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-displacement="1">
+                            <label for="select01" style="font-size: 20px;" >소형차 1600cc 미만</label>
+                        </li>                
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-displacement="1">
+                            <label for="select01" style="font-size: 20px;" >중형차 1600cc ~2000 미만</label>
+                        </li>               
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-displacement="1">
+                            <label for="select01" style="font-size: 20px;" >대형 2000cc 이상</label>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+
+            <input type="checkbox" id="car_select04">
+            <label for="car_select04">색 상<img src="./arrow down.png"></img></label>
+            <div class="sidebar" >
+                <div class="color" >
+                    <ul class="">
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-color="1">
+                            <label for="select01" style="font-size: 20px;" > 흰색</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-color="1">
+                            <label for="select01" style="font-size: 20px;" > 검정색</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-color="1">
+                            <label for="select01" style="font-size: 20px;" > 쥐색</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-color="1">
+                            <label for="select01" style="font-size: 20px;" > 은색</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-color="1">
+                            <label for="select01" style="font-size: 20px;" > 청색</label>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+
+            <input type="checkbox" id="car_select05">
+            <label for="car_select05">차 량 연 식<img src="./arrow down.png"></img></label>
+            <div class="sidebar" >
+                <div class="modelYear" >
+                    <ul class="">
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2000년~2005년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2005년~2010년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2011년~2015년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2016년~2020년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2021년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2022년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2023년</label>
+                        </li>  
+                        <li >
+                            <input type="checkbox" class="" id="select01" data-car-modelYear="1">
+                            <label for="select01" style="font-size: 20px;" >2024년</label>
+                        </li>  
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+
+    </aside>
+
+    <!-- section -->
+
+    <section id="main-section">
+
+    <!-- div row  -->
+        <div class="row">
+            <div class="car-icons">
+                <div class="car-holder">
+                    <img src="https://via.placeholder.com/250x250">
+                </div>
+                <div class="txt">
+                    <div class="car1"> 아이오닉 5 EV AWD</div>
+                    <table class="car_table">
+                        <tbody>
+                            <tr>
+                                <td>차 종 : </td>
+                                <td><span> suv</span></td>
+                            </tr>
+                            <tr>
+                                <td>연 식 : </td>
+                                <td><span> 2010/01</span></td>
+                            </tr>
+                            <tr>
+                                <td> 가 격 : </td>
+                                <td><span> 2750만원</span></td>
+                            </tr>
+                            <tr>
+                                <td>총 km 수 : </td>
+                                <td> <span>82200km</span></td>
+                            </tr>
+                            <tr>
+                                <td>배 기 량 : </td>
+                                <td><span> 1580cc</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="brand">
+                    <div>판매자 : <span> 누구게</span></div>
+                    <div class="like"><i class="fa-solid fa-heart">&nbsp;0</i></div>
+                </div>
+            </div>
+    
+            <div class="car-icons">
+                <div class="car-holder">
+                    <img src="https://via.placeholder.com/250x250">
+                </div>
+                <div class="txt">
+                    <div class="car1"> 아이오닉 5 EV AWD</div>
+                    <table class="car_table">
+                        <tbody>
+                            <tr>
+                                <td>차 종 : </td>
+                                <td><span> suv</span></td>
+                            </tr>
+                            <tr>
+                                <td>연 식 : </td>
+                                <td><span> 2010/01</span></td>
+                            </tr>
+                            <tr>
+                                <td> 가 격 : </td>
+                                <td><span> 2750만원</span></td>
+                            </tr>
+                            <tr>
+                                <td>총 km 수 : </td>
+                                <td> <span>82200km</span></td>
+                            </tr>
+                            <tr>
+                                <td>배 기 량 : </td>
+                                <td><span> 1580cc</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="brand">
+                    <div>판매자 : <span> 누구게</span></div>
+                    <div class="like"><i class="fa-solid fa-heart">&nbsp;0</i></div>
+
+                </div>
+            </div>
+    
+            <div class="car-icons">
+                <div class="car-holder">
+                    <img src="https://via.placeholder.com/250x250">
+                </div>
+                <div class="txt">
+                    <div class="car1"> 아이오닉 5 EV AWD</div>
+                    <table class="car_table">
+                        <tbody>
+                            <tr>
+                                <td>차 종 : </td>
+                                <td><span> suv</span></td>
+                            </tr>
+                            <tr>
+                                <td>연 식 : </td>
+                                <td><span> 2010/01</span></td>
+                            </tr>
+                            <tr>
+                                <td> 가 격 : </td>
+                                <td><span> 2750만원</span></td>
+                            </tr>
+                            <tr>
+                                <td>총 km 수 : </td>
+                                <td> <span>82200km</span></td>
+                            </tr>
+                            <tr>
+                                <td>배 기 량 : </td>
+                                <td><span> 1580cc</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="brand">
+                    <div>판매자 : <span> 누구게</span></div>
+                    <div class="like"><i class="fa-solid fa-heart">&nbsp;0</i></div>
+
+                </div>
+            </div>
+        </div>
+    
+ <!-- div row  -->
+        <div class="row">
+
+            <div class="car-icons">
+                <div class="car-holder">
+                    <img src="https://via.placeholder.com/250x250">
+                </div>
+                <div class="txt">
+                    <div class="car1"> 아이오닉 5 EV AWD</div>
+                    <table class="car_table">
+                        <tbody>
+                            <tr>
+                                <td>차 종 : </td>
+                                <td><span> suv</span></td>
+                            </tr>
+                            <tr>
+                                <td>연 식 : </td>
+                                <td><span> 2010/01</span></td>
+                            </tr>
+                            <tr>
+                                <td> 가 격 : </td>
+                                <td><span> 2750만원</span></td>
+                            </tr>
+                            <tr>
+                                <td>총 km 수 : </td>
+                                <td> <span>82200km</span></td>
+                            </tr>
+                            <tr>
+                                <td>배 기 량 : </td>
+                                <td><span> 1580cc</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="brand">
+                    <div>판매자 : <span> 누구게</span></div>
+                    <div class="like"><i class="fa-solid fa-heart">&nbsp;0</i></div>
+
+                </div>
+            </div>
+    
+            <!-- <div class="car-icons">
+                <div class="car-holder">
+                    <img src="https://via.placeholder.com/250x250">
+                </div>
+                <div class="txt">
+                    <div class="car1"> 아이오닉 5 EV AWD</div>
+                    <table class="car_table">
+                        <tbody>
+                            <tr>
+                                <td>차 종 : </td>
+                                <td><span> suv</span></td>
+                            </tr>
+                            <tr>
+                                <td>연 식 : </td>
+                                <td><span> 2010/01</span></td>
+                            </tr>
+                            <tr>
+                                <td> 가 격 : </td>
+                                <td><span> 2750만원</span></td>
+                            </tr>
+                            <tr>
+                                <td>총 km 수 : </td>
+                                <td> <span>82200km</span></td>
+                            </tr>
+                            <tr>
+                                <td>배 기 량 : </td>
+                                <td><span> 1580cc</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="brand">
+                    <div>판매자 : <span> 누구게</span></div>
+                </div>
+            </div> -->
+    
+            
+        </div>
+    
+       
+    
+    </section>
+
+</div>
+<!-- footer -->
+
+<footer class="footer">
+    <p>푸터입니다</p>
+ 
+</footer>
+</div>  
+
+
+</body>
+</html>
