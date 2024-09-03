@@ -2,7 +2,7 @@ package com.example.demo.application.dto.carPostDto;
 
 import com.example.demo.domain.CarImages;
 import com.example.demo.domain.CarPost;
-import com.example.demo.domain.User;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class CarPostReadResponse {
+public class CarPostMainReadResponse {
 
   private String carModel;
   private String brand;
@@ -22,10 +22,10 @@ public class CarPostReadResponse {
   private String displacement;
   private String color;
   private String userId;
-  private CarImages carImages;
+  private List<CarImages> carImages;
 
 
-  public CarPostReadResponse(CarPost carPost) {
+  public CarPostMainReadResponse(CarPost carPost) {
     this.carModel = carPost.getCarModel();
     this.brand = carPost.getBrand();
     this.carType = carPost.getCarType();
@@ -36,4 +36,7 @@ public class CarPostReadResponse {
     this.userId = String.valueOf(carPost.getUserId());
     this.carImages = carPost.getCarImages();
   }
+
+
+
 }

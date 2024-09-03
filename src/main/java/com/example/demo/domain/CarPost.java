@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,10 +8,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -39,9 +42,9 @@ public class CarPost {
   @JoinColumn(name = "user_id")
   private User userId;
 
-  @ManyToOne
-  @JoinColumn(name = "Car_images_id")
-  private CarImages carImages;
+  @OneToMany(mappedBy = "carPost", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<CarImages> carImages;
+
 
   @Column(updatable = false)
   @CreationTimestamp
