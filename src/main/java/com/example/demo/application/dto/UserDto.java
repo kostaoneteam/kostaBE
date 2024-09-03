@@ -29,4 +29,11 @@ public class UserDto {
 
 	@NotEmpty(message="유저상태는 필수항목입니다.")
 	private String userState;
+
+
+	public UserDto(String userid) {
+		this.userid = userid;
+	}
+
+
 }

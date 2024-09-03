@@ -37,7 +37,7 @@ public class User {
   private String eMail;
   @Column(nullable = false, unique = true, length = 50)
   private String phoneNumber;
-  @Column(nullable = false, unique = true, length = 20)
+  @Column(nullable = false, length = 20)
   private String userState;
 
   @OneToMany(mappedBy = "userId")

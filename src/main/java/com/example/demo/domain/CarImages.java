@@ -30,5 +30,5 @@ public class CarImages {
 
   @ManyToOne
   @JoinColumn(name = "carpost_id")
-  private CarPost post;
+  private CarPost carPost;
 }
