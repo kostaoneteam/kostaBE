@@ -37,4 +37,15 @@ public class CarPostService {
       }
       return response;
   }
+
+  public List<CarPostMainPageReadResponse> getMyPageCarPost (String userId,int limit,int offset) {
+    Pageable pageable = PageRequest.of(offset / limit, limit); // 페이지 번호와 페이지 크기 설정
+           Page<CarPostMainPageReadResponse> page = carPostRepository.findCarPostsByUserId(userId,pageable);
+           return page.getContent(); // 페이지에서 내용만 추출
+  }
+
+  public List<CarPost> getA (){
+    return carPostRepository.findAll();
+  }
+
 }

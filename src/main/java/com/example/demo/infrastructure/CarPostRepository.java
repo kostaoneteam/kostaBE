@@ -39,4 +39,16 @@ public interface CarPostRepository extends JpaRepository<CarPost, Long> {
 
 
 
+ @Query("SELECT new com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse(" +
+         "cp.carModel, cp.brand, cp.carType, cp.mileage, cp.price, cp.displacement, cp.color, cp.userId.userId, " +
+         "MIN(ci.carImagesURL)) " +
+         "FROM CarPost cp " +
+         "LEFT JOIN cp.carImages ci " +
+         "WHERE ci.id = (SELECT MIN(c.id) FROM CarImages c WHERE c.carPost.id = cp.id) " +
+         "AND cp.userId.userId = :userId " +
+         "GROUP BY cp.id, cp.carModel, cp.brand, cp.carType, cp.mileage, cp.price, cp.displacement, cp.color, cp.userId " +
+         "ORDER BY cp.createdAt DESC ")
+  Page<CarPostMainPageReadResponse> findCarPostsByUserId(@Param("userId") String userId,Pageable pageable);
+
+
 }

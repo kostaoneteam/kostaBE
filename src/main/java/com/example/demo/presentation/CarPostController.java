@@ -5,7 +5,6 @@ import com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse;
 import com.example.demo.application.service.CarPostService;
 import com.example.demo.domain.CarPost;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +27,15 @@ public class CarPostController {
   @GetMapping("/details")
   public CarPostDetailsPageReadResponse details(@RequestParam Long id){
     return carPostService.getCarPostDetails(id);
+  }
+
+  @GetMapping("/mypage")
+  public List<CarPostMainPageReadResponse> myPage(@RequestParam String userId,int limit,int offset){
+    return carPostService.getMyPageCarPost(userId, limit, offset);
+  }
+
+  @GetMapping("/qwe")
+  public List<CarPost> qwe(){
+    return carPostService.getA();
   }
 }

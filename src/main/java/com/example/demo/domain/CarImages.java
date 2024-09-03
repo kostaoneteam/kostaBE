@@ -1,5 +1,6 @@
 package com.example.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,5 +31,6 @@ public class CarImages {
 
   @ManyToOne
   @JoinColumn(name = "carpost_id")
+  @JsonIgnore
   private CarPost carPost;
 }
