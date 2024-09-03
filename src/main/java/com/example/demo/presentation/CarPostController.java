@@ -7,6 +7,7 @@ import com.example.demo.domain.CarPost;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,17 +19,17 @@ public class CarPostController {
 
   private final CarPostService carPostService;
 
-
+  //메인페이지
   @GetMapping("/main")
   public List<CarPostMainPageReadResponse> allPost(@RequestParam int limit, @RequestParam int offset){
     return carPostService.getAll(limit,offset);
   }
-
-  @GetMapping("/details")
-  public CarPostDetailsPageReadResponse details(@RequestParam Long id){
+  //상세페이지
+  @GetMapping("/details/{id}")
+  public CarPostDetailsPageReadResponse details(@PathVariable Long id){
     return carPostService.getCarPostDetails(id);
   }
-
+  //내가 쓴 글 조회
   @GetMapping("/mypage")
   public List<CarPostMainPageReadResponse> myPage(@RequestParam String userId,int limit,int offset){
     return carPostService.getMyPageCarPost(userId, limit, offset);
