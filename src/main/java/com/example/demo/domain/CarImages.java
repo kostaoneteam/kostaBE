@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
@@ -12,6 +14,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "car_images")
@@ -28,6 +32,8 @@ public class CarImages {
   @CreationTimestamp
   private LocalDateTime createdAt;
 
-  @OneToMany(mappedBy = "carImages")
-  private List<CarPost> CarPost;
+  @ManyToOne
+  @JoinColumn(name = "carpost_id")
+  @JsonIgnore
+  private CarPost carPost;
 }

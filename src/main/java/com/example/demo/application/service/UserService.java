@@ -36,7 +36,7 @@ public class UserService {
 	}
 
 	public User getUser(String userid) {
-		Optional<User> User=this.userRepository.findByusername(userid);
+		Optional<User> User=this.userRepository.findByuserId(userid);
 		if (User.isPresent()) {
 			return User.get(); // 최종적으로 값을 끌어올려면 get() 메서드
 		} else {
