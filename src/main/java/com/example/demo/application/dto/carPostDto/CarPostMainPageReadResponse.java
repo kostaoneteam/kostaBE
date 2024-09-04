@@ -34,8 +34,4 @@ public class CarPostMainPageReadResponse {
     this.carImagesURL=String.valueOf(carPostMainPageReadResponse.getCarImagesURL());
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f7201aa3ba97944595125338727f3e4685fc5986

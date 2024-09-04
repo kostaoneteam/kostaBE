@@ -1,7 +1,6 @@
 package com.example.demo.application.dto.carPostDto;
 
-import com.example.demo.domain.CarImages;
-import java.util.Collections;
+
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,8 +35,5 @@ public class CarPostDetailsPageReadResponse {
     this.color = color;
     this.userId = userId;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
+

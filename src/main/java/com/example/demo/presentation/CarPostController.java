@@ -39,8 +39,5 @@ public class CarPostController {
   public List<CarPost> qwe(){
     return carPostService.getA();
   }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
