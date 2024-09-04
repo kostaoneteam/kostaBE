@@ -1,6 +1,7 @@
 package com.example.demo.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -41,13 +42,19 @@ public class User {
 
   @Column(nullable = false, unique = true, length = 50)
   private String phoneNumber;
+<<<<<<< HEAD
 
   @Column(nullable = false, unique = true, length = 20)
+=======
+  @Column(nullable = false, length = 20)
+>>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
   private String userState;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<Likes> likes;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<CarPost> carPost;
 

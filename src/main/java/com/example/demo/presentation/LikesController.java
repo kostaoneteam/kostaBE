@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.demo.presentation;
 
 import com.example.demo.application.service.LikesService;
@@ -36,4 +37,7 @@ public class LikesController {
         boolean liked = likesService.isLiked(likesDto);
         return ResponseEntity.ok(liked);
     }
+=======
+package com.example.demo.presentation;public class LikesController {
+>>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
 }

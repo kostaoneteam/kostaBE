@@ -1,3 +1,4 @@
+/*
 package com.example.demo;
 
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class SecurityConfig {
 	@Bean           // > 모든 요청 URL에 이 클래스가 필터로 적용되어 URL별로 특별한 설정을 할 수 있음				// > 다음은 인증되지 않은 모든 페이지의 요청을 허락
 	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {							// > 로그인하지 않더라도 모든 페이지에 접근
 		http.authorizeHttpRequests((authorizeHttpRequests)->authorizeHttpRequests.requestMatchers(new AntPathRequestMatcher("/**")).permitAll()).csrf((csrf)->csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))).headers((headers)->headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))).formLogin((formLogin)->formLogin.loginPage("/user/login").defaultSuccessUrl("/")).logout((logout)->logout.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")).logoutSuccessUrl("/").invalidateHttpSession(true));
-		return http.build();																			
+		return http.build();
 	}
 	@Bean
 	PasswordEncoder passwordEncoder() { // BCryptPasswordEncoder의 인터페이스
@@ -32,3 +33,4 @@ public class SecurityConfig {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
 }
+*/

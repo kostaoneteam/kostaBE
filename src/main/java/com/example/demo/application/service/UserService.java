@@ -1,6 +1,5 @@
 package com.example.demo.application.service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import com.example.demo.DataNotFoundException;
@@ -8,7 +7,6 @@ import com.example.demo.domain.User;
 import com.example.demo.infrastructure.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @Setter
 @Service
 public class UserService {
-    private final UserRepository userRepository;
+/*	private final UserRepository userRepository;
 	private final PasswordEncoder passwordEncoder;
 
 	public User create(String userid, String email, String password, String phoneNumber, String userState) {
@@ -35,12 +33,17 @@ public class UserService {
 		return user;
 	}
 
+<<<<<<< HEAD
 	public User getUser(String userid) {
 		Optional<User> User=this.userRepository.findByuserId(userid);
+=======
+*//*	public User getUser(String userid) {
+		Optional<User> User=this.userRepository.findByUserName(userid);
+>>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
 		if (User.isPresent()) {
 			return User.get(); // 최종적으로 값을 끌어올려면 get() 메서드
 		} else {
 			throw new DataNotFoundException("user not found");
 		}
-	}
+	}*/
 }

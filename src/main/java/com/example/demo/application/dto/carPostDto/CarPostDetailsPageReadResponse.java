@@ -36,4 +36,8 @@ public class CarPostDetailsPageReadResponse {
     this.color = color;
     this.userId = userId;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f7201aa3ba97944595125338727f3e4685fc5986

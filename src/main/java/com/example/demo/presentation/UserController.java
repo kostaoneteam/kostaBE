@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-
+/*
     private final UserService userService;
 
 	@GetMapping("/signup") // URL이 GET으로 요청되면 회원 가입을 위한 템플릿을 렌더링
@@ -53,5 +53,5 @@ public class UserController {
 	@GetMapping("/login")
 	public String login() {
 		return "login_form";
-	}
+	}*/
 }

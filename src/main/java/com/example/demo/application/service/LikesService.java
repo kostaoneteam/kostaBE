@@ -1,5 +1,6 @@
 package com.example.demo.application.service;
 
+<<<<<<< HEAD
 import com.example.demo.domain.CarPost;
 import com.example.demo.domain.Likes;
 import com.example.demo.domain.User;
@@ -46,3 +47,8 @@ public class LikesService {
         return likeRepository.existsByUserIdAndPostId(likesDto.getUserId(), likesDto.getPostId());
     }
 }
+=======
+public class LikesService {
+
+}
+>>>>>>> f7201aa3ba97944595125338727f3e4685fc5986
