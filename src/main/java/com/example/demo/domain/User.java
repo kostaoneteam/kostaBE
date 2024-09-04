@@ -37,6 +37,9 @@ public class User {
   @Column(nullable = false)
   private String password;
 
+  @Column(nullable = false)
+  private String userName;
+
   @Column(nullable = false, unique = true)
   private String eMail;
 
@@ -45,6 +48,9 @@ public class User {
 
   @Column(nullable = false, length = 20)
   private String userState;
+
+  @Column
+  private String userImagesURL;
 
   @JsonIgnore
   @OneToMany(mappedBy = "userId")

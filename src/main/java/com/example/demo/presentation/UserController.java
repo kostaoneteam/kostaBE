@@ -19,7 +19,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-/*
     private final UserService userService;
 
 	@GetMapping("/signup") // URL이 GET으로 요청되면 회원 가입을 위한 템플릿을 렌더링
@@ -38,7 +37,7 @@ public class UserController {
 		}
     
 		try { // > 사용자로부터 전달받은 데이터를 저장 
-			userService.create(userDto.getUserid(),userDto.getEmail(),userDto.getPassword1(),userDto.getPhoneNumber(),userDto.getUserState());
+			userService.create(userDto.getUserid(),userDto.getEmail(),userDto.getPassword1(),userDto.getPhoneNumber(),userDto.getUserState(),userDto.getUserName());
 		}catch(DataIntegrityViolationException e) {
 			e.printStackTrace();
 			bindingResult.reject("signupFailed","이미 등록된 사용자입니다.");
@@ -53,5 +52,5 @@ public class UserController {
 	@GetMapping("/login")
 	public String login() {
 		return "login_form";
-	}*/
+	}
 }
