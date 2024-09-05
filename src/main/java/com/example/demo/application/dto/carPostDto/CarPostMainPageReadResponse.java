@@ -21,4 +21,5 @@ public class CarPostMainPageReadResponse {
   private String userId;
   private String carImagesURL;
   private Long likes;
+
 }

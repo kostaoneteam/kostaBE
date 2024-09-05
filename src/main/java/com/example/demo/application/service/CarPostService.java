@@ -6,6 +6,7 @@ import com.example.demo.application.dto.carPostDto.CarPostMyPageReadResponse;
 import com.example.demo.application.dto.userDto.UserDetailsReadResponse;
 import com.example.demo.domain.CarPost;
 import com.example.demo.infrastructure.CarPostRepository;
+import com.example.demo.infrastructure.LikesRepository;
 import com.example.demo.infrastructure.UserRepository;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ public class CarPostService {
   private static final String DEFAULT_IMAGE_URL = "https://i.pinimg.com/originals/ff/c2/37/ffc2379c099c0b25bb7e6afaba5748fb.jpg";
   private final CarPostRepository carPostRepository;
   private final UserRepository userRepository;
+  private final LikesRepository likesRepository;
 
   public List<CarPostMainPageReadResponse> getAll(int limit,int offset) {
 

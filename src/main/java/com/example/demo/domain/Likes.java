@@ -1,7 +1,6 @@
 package com.example.demo.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,7 +30,7 @@ public class Likes {
   private User userId;
 
   @ManyToOne
-  @JoinColumn(name = "car_post_id")
+  @JoinColumn(name = "post_id")
   private CarPost postId;
 
   @CreationTimestamp
