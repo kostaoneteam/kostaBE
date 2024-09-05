@@ -52,11 +52,9 @@ public class User {
   @Column
   private String userImagesURL;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<Likes> likes;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<CarPost> carPost;
 

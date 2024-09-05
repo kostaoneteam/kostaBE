@@ -34,6 +34,5 @@ public class CarImages {
 
   @ManyToOne
   @JoinColumn(name = "carpost_id")
-  @JsonIgnore
   private CarPost carPost;
 }

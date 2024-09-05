@@ -1,6 +1,5 @@
 package com.example.demo.application.dto.carPostDto;
 
-import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,6 +20,5 @@ public class CarPostMainPageReadResponse {
   private String color;
   private String userId;
   private String carImagesURL;
-
-
+  private Long likes;
 }

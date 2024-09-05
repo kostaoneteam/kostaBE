@@ -28,7 +28,7 @@ public class LikesService {
 
             Likes like = new Likes();
             like.setUserId(user);
-            like.setPoseId(post);
+            like.setPostId(post);
             likeRepository.save(like);
         }
     }
@@ -39,7 +39,7 @@ public class LikesService {
     }
 
     public int countLikes(Long postId) {
-        return likeRepository.findByPoseId_Id(postId).size();
+        return likeRepository.findByPostId_Id(postId).size();
     }
 
     public boolean isLiked(LikesDto likesDto) {

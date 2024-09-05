@@ -8,7 +8,6 @@ import com.example.demo.domain.CarPost;
 import com.example.demo.infrastructure.CarPostRepository;
 import com.example.demo.infrastructure.UserRepository;
 import java.util.List;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -52,7 +51,7 @@ public class CarPostService {
   }
 
 /*  public List<CarPostMyPageReadResponse> getMyPageCarPost (String userId,int limit,int offset) {
-    Pageable pageable = PageRequest.of(offset / limit, limit); // 페이지 번호와 페이지 크기 설정
+           Pageable pageable = PageRequest.of(offset / limit, limit); // 페이지 번호와 페이지 크기 설정
            Page<CarPostMyPageReadResponse> page = carPostRepository.findCarPostsByUserId(userId,pageable);
            return page.getContent(); // 페이지에서 내용만 추출
   }*/

@@ -28,13 +28,11 @@ public class Likes {
 
   @ManyToOne
   @JoinColumn(name = "user_id")
-  @JsonIgnore
   private User userId;
 
   @ManyToOne
-  @JoinColumn(name = "post_id")
-  @JsonIgnore
-  private CarPost poseId;
+  @JoinColumn(name = "car_post_id")
+  private CarPost postId;
 
   @CreationTimestamp
   private LocalDateTime createdAt;

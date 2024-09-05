@@ -46,6 +46,10 @@ public class CarPost {
   @OneToMany(mappedBy = "carPost", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<CarImages> carImages;
 
+  @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<Likes> likes;
+
+
 
   @Column(updatable = false)
   @CreationTimestamp
