@@ -2,45 +2,67 @@ package com.example.demo.application.service;
 
 import java.util.Optional;
 
+import com.example.demo.application.dto.UserDto;
 import com.example.demo.DataNotFoundException;
 import com.example.demo.domain.User;
 import com.example.demo.infrastructure.UserRepository;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Getter
-@Setter
 @Service
 public class UserService {
 	private final UserRepository userRepository;
 	private final PasswordEncoder passwordEncoder;
 
-	public User create(String userid, String email, String password, String phoneNumber, String userState, String userName) {
-		User user=new User();
+	public UserDto create(String userid, String email, String password, String phoneNumber, String userState, String userName,String userImagesURL) {
+		User user = new User();
 		user.setUserId(userid);
-		user.setEMail(email); // 카멜
-		user.setPassword(passwordEncoder.encode(password));
+		user.setPassword(password);
+		user.setEMail(email);
 		user.setPhoneNumber(phoneNumber);
 		user.setUserState(userState);
-        user.setUserName(userName);
-//		user.setCreatedAt(createdAt);
-//		user.setUpdatedAt(updatedAt);
-//		user.setDeletedAt(deletedAt);
+		user.setUserName(userName);
+		user.setUserImagesURL(userImagesURL);
 
-		this.userRepository.save(user); // User 데이터를 생성하는 create 메서드를 추가
-		return user;
+		User savedUser = this.userRepository.save(user);
+
+		return toDto(savedUser); // User를 UserDto로 변환하여 반환
 	}
-    	public User getUser(String userid) {
-		Optional<User> User=this.userRepository.findByUserId(userid);
-		if (User.isPresent()) {
-			return User.get(); // 최종적으로 값을 끌어올려면 get() 메서드
+
+	public UserDto getUser(String userid) {
+		Optional<User> user = this.userRepository.findByUserId(userid);
+		if (user.isPresent()) {
+			return toDto(user.get());
 		} else {
 			throw new DataNotFoundException("user not found");
 		}
+	}
+
+	private UserDto toDto(User user) {
+		return new UserDto(
+				user.getId(),
+				user.getUserId(),
+				user.getPassword(),
+				user.getUserName(),
+				user.getEMail(),
+				user.getPhoneNumber(),
+				user.getUserState(),
+				user.getUserImagesURL(),
+				user.getCreatedAt(),
+				user.getUpdatedAt(),
+				user.getDeletedAt()
+		);
+	}
+
+	public boolean authenticate(String userId, String rawPassword) {
+		Optional<User> userOptional = userRepository.findByUserId(userId);
+		if (userOptional.isPresent()) {
+			User user = userOptional.get();
+			return passwordEncoder.matches(rawPassword, user.getPassword());
+		}
+		return false;
 	}
 }
