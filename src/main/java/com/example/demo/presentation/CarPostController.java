@@ -1,3 +1,4 @@
+/*
 package com.example.demo.presentation;
 
 import com.example.demo.application.dto.carPostDto.CarPostCreateRequest;
@@ -45,6 +46,7 @@ public class CarPostController {
   }
 
 
+<<<<<<< HEAD
   @PostMapping("/post")
   public ResponseEntity<?> createCarPost(@RequestBody CarPostCreateRequest carPost) {
     try {
@@ -59,3 +61,6 @@ public class CarPostController {
     }
   }
 }
+=======
+}*/
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1

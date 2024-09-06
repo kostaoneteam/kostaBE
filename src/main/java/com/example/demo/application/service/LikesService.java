@@ -1,3 +1,4 @@
+/*
 package com.example.demo.application.service;
 
 import com.example.demo.domain.CarPost;
@@ -45,5 +46,4 @@ public class LikesService {
     public boolean isLiked(LikesDto likesDto) {
         return likesRepository.existsByUserIdAndPostId(likesDto.getUserId(), likesDto.getPostId());
     }
-}
-
+}*/

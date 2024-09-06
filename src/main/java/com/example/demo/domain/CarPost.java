@@ -1,5 +1,9 @@
 package com.example.demo.domain;
 
+<<<<<<< HEAD
+import jakarta.persistence.*;
+
+=======
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,6 +16,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+>>>>>>> 6c3320ed438cdcbe8d3fad9189be3dcec6653b05
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Getter;

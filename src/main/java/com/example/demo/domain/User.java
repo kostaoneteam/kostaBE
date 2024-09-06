@@ -2,6 +2,7 @@ package com.example.demo.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+<<<<<<< HEAD
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +13,9 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+=======
+import jakarta.persistence.*;
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -51,6 +55,10 @@ public class User {
   private String userState;
 
   @Lob
+<<<<<<< HEAD
+=======
+  @Column(nullable = false)
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
   private String userImagesURL;
 
   @OneToMany(mappedBy = "userId")
