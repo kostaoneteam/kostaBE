@@ -1,5 +1,4 @@
 package com.example.demo.application.service;
-
 import java.util.Optional;
 
 import com.example.demo.DataNotFoundException;
@@ -50,17 +49,24 @@ public class UserService {
 
 	private UserDto toDto(User user) {
 		return new UserDto(
+<<<<<<< HEAD
+=======
 				user.getId(),
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 				user.getUserId(),
 				user.getPassword(),
 				user.getUserName(),
 				user.getEMail(),
 				user.getPhoneNumber(),
 				user.getUserState(),
+<<<<<<< HEAD
+				user.getUserImagesURL()
+=======
 				user.getUserImagesURL(),
 				user.getCreatedAt(),
 				user.getUpdatedAt(),
 				user.getDeletedAt()
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 		);
 	}
 
@@ -72,4 +78,12 @@ public class UserService {
 		}
 		return false;
 	}
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
+>>>>>>> 3822ec62b8b7a98af8fc56e35dac5d5bee5ca544

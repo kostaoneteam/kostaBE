@@ -1,22 +1,68 @@
 package com.example.demo.application.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+<<<<<<< HEAD
+@NoArgsConstructor
+=======
 
 import java.time.LocalDateTime;
 
 /*
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 @Getter
 @Setter
 public class UserDto {
+<<<<<<< HEAD
 	@@ -33,9 +32,58 @@ public class UserDto {
 	@NotEmpty(message="이름은 필수항목입니다.")
 	private String userName;
+=======
+	@Size(min=3,max=25) // 문자열 길이
+	@NotEmpty(message="사용자ID는 필수항목입니다.")
+	private String userId;
+
+	@NotEmpty(message="비밀번호는 필수항목입니다.")
+	private String password; // ‘비밀번호’
+
+	@NotEmpty(message="이메일은 필수항목입니다.")
+	@Email
+	private String email;
+
+	@NotEmpty(message="전화번호는 필수항목입니다.")
+	private String phoneNumber;
+
+	@NotEmpty(message="유저상태는 필수항목입니다.")
+	private String userState;
+
+	@NotEmpty(message="이름은 필수항목입니다.")
+	private String userName;
+
+<<<<<<< HEAD
+	private String userImagesURL;
+
+	public UserDto(String userId) {
+		this.userId = userId;
+	}
+
+	public UserDto(String userId, String password, String email, String phoneNumber, String userState,
+			String userName, String userImagesURL) {
+		this.userId = userId;
+		this.password = password;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.userState = userState;
+		this.userName = userName;
+		this.userImagesURL = userImagesURL;
+=======
+>>>>>>> 3822ec62b8b7a98af8fc56e35dac5d5bee5ca544
 	// 기본 생성자
 	public UserDto() {
 	}
 	public UserDto(String userid) {
 		this.userid = userid;
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 	}
 }
 */

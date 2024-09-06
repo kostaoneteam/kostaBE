@@ -1,5 +1,6 @@
 package com.example.demo.application.service;
 
+import com.example.demo.application.dto.carPostDto.CarPostCreateRequest;
 import com.example.demo.application.dto.carPostDto.CarPostDetailsPageReadResponse;
 import com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse;
 import com.example.demo.domain.CarPost;
@@ -117,7 +118,38 @@ public class CarPostService {
   }
 >>>>>>> parent of 17b77ef (test)
 
+<<<<<<< HEAD
   public List<CarPost> getA (){
     return carPostRepository.findAll();
   }
 }
+=======
+<<<<<<< HEAD
+  public CarPost createPost(CarPostCreateRequest c) {
+
+    CarPost carPost = new CarPost(c.getCarModel(),
+        c.getBrand(),
+        c.getCarType(),
+        c.getCarYear(),
+        c.getMileage(),
+        c.getPrice(),
+        c.getDisplacement(),
+        c.getColor());
+    return carPostRepository.save(carPost);
+
+  }
+
+
+}
+=======
+
+    public List<CarPostMyPageReadResponse> getMyPageCarPost (String userId) {
+        return carPostRepository.findCarPostsByUserId(userId);
+    }
+
+    public List<CarPost> getA (){
+        return carPostRepository.findAll();
+    }
+}*/
+>>>>>>> 87890a45762d8a607859a928602af5b570703cb1
+>>>>>>> 3822ec62b8b7a98af8fc56e35dac5d5bee5ca544
