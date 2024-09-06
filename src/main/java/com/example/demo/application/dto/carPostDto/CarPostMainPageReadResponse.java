@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class CarPostMainPageReadResponse {
-
+  private Long id;
   private String carModel;
   private String brand;
   private String carType;
@@ -21,19 +21,7 @@ public class CarPostMainPageReadResponse {
   private String color;
   private String userId;
   private String carImagesURL;
-
-
-  public CarPostMainPageReadResponse(CarPostMainPageReadResponse carPostMainPageReadResponse) {
-    this.carModel = carPostMainPageReadResponse.getCarModel();
-    this.brand = carPostMainPageReadResponse.getBrand();
-    this.carType = carPostMainPageReadResponse.getCarType();
-    this.mileage = carPostMainPageReadResponse.getMileage();
-    this.price = carPostMainPageReadResponse.getPrice();
-    this.displacement = carPostMainPageReadResponse.getDisplacement();
-    this.color = carPostMainPageReadResponse.getColor();
-    this.userId= String.valueOf(carPostMainPageReadResponse.getUserId());
-    this.carImagesURL=String.valueOf(carPostMainPageReadResponse.getCarImagesURL());
-  }
+  private Long likes;
 
 }
 */

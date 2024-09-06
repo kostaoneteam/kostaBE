@@ -1,3 +1,33 @@
+// JSON 데이터
+const data = {
+  carModel: "string",
+  brand: "string",
+  carType: "string",
+  carYear: "string",
+  mileage: 0,
+  price: 0,
+  displacement: "string",
+  color: "string"
+};
+
+// 요청 보내기
+fetch('http://localhost:8080/carpost/post', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': '*/*'
+  },
+  body: JSON.stringify(data) // JSON으로 변환하여 본문에 포함
+})
+.then(response => response.json()) // 서버 응답을 JSON으로 변환
+.then(data => {
+  console.log('Success:', data); // 성공적으로 데이터를 수신했을 때 처리
+})
+.catch((error) => {
+  console.error('Error:', error); // 오류 발생 시 처리
+});
+
+
 ## 프로젝트 소개
 KOSTA 1팀
 <br>

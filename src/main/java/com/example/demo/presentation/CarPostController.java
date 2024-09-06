@@ -3,6 +3,7 @@ package com.example.demo.presentation;
 
 import com.example.demo.application.dto.carPostDto.CarPostDetailsPageReadResponse;
 import com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse;
+import com.example.demo.application.dto.carPostDto.CarPostMyPageReadResponse;
 import com.example.demo.application.service.CarPostService;
 import com.example.demo.domain.CarPost;
 import java.util.List;
@@ -32,8 +33,8 @@ public class CarPostController {
   }
   //내가 쓴 글 조회
   @GetMapping("/mypage")
-  public List<CarPostMainPageReadResponse> myPage(@RequestParam String userId,int limit,int offset){
-    return carPostService.getMyPageCarPost(userId, limit, offset);
+  public List<CarPostMyPageReadResponse> myPage(@RequestParam String userId){
+    return carPostService.getMyPageCarPost(userId);
   }
 
   @GetMapping("/qwe")
