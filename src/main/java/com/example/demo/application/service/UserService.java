@@ -21,13 +21,13 @@ public class UserService {
 	private final PasswordEncoder passwordEncoder;
 
 	public UserDto create(String userid, String email, String password, String phoneNumber, String userState, String userName, String userImagesURL) {
-		User user=new User();
+		User user = new User();
 		user.setUserId(userid);
 		user.setEMail(email); // 카멜
 		user.setPassword(passwordEncoder.encode(password));
 		user.setPhoneNumber(phoneNumber);
 		user.setUserState(userState);
-        user.setUserName(userName);
+		user.setUserName(userName);
 		user.setUserImagesURL(userImagesURL);
 //		user.setCreatedAt(createdAt);
 //		user.setUpdatedAt(updatedAt);
@@ -49,24 +49,14 @@ public class UserService {
 
 	private UserDto toDto(User user) {
 		return new UserDto(
-<<<<<<< HEAD
-=======
-				user.getId(),
->>>>>>> 87890a45762d8a607859a928602af5b570703cb1
 				user.getUserId(),
 				user.getPassword(),
 				user.getUserName(),
 				user.getEMail(),
 				user.getPhoneNumber(),
 				user.getUserState(),
-<<<<<<< HEAD
 				user.getUserImagesURL()
-=======
-				user.getUserImagesURL(),
-				user.getCreatedAt(),
-				user.getUpdatedAt(),
-				user.getDeletedAt()
->>>>>>> 87890a45762d8a607859a928602af5b570703cb1
+
 		);
 	}
 
@@ -78,12 +68,4 @@ public class UserService {
 		}
 		return false;
 	}
-<<<<<<< HEAD
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 87890a45762d8a607859a928602af5b570703cb1
->>>>>>> 3822ec62b8b7a98af8fc56e35dac5d5bee5ca544

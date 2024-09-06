@@ -12,14 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class CarPostMyPageReadResponse {
 
-<<<<<<< HEAD
-    private String carModel;
-    private LocalDateTime createdAt;
-
-}
-=======
   private String carModel;
   private LocalDateTime createdAt;
 
 }
->>>>>>> 6c3320ed438cdcbe8d3fad9189be3dcec6653b05

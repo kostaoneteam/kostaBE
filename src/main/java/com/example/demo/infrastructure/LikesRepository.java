@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface LikeRepository extends JpaRepository<Likes, Long> {
+public interface LikesRepository extends JpaRepository<Likes, Long> {
 
     @Query("SELECT CASE WHEN COUNT(l) > 0 THEN TRUE ELSE FALSE END FROM Likes l WHERE l.userId.id = :userId AND l.poseId.id = :postId")
     boolean existsByUserIdAndPostId(@Param("userId") Long userId, @Param("postId") Long postId);
