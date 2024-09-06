@@ -1,8 +1,14 @@
 package com.example.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,8 +27,6 @@ public class CarImages {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) // 엔티티의 PK 자동 생성
   private Long id;
-
-  @Lob
   private String carImagesURL;
 
   @CreationTimestamp
@@ -30,5 +34,6 @@ public class CarImages {
 
   @ManyToOne
   @JoinColumn(name = "carpost_id")
+  @JsonIgnore
   private CarPost carPost;
 }

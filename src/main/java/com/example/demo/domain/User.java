@@ -2,7 +2,15 @@ package com.example.demo.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Table;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -41,13 +49,14 @@ public class User {
   @Column(nullable = false, length = 20)
   private String userState;
 
-  @Lob
-  @Column(nullable = false)
+  @Column
   private String userImagesURL;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<Likes> likes;
 
+  @JsonIgnore
   @OneToMany(mappedBy = "userId")
   private List<CarPost> carPost;
 

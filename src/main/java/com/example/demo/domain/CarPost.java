@@ -1,9 +1,13 @@
 package com.example.demo.domain;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 import jakarta.persistence.*;
 
 =======
+=======
+import com.fasterxml.jackson.annotation.JsonIgnore;
+>>>>>>> parent of 17b77ef (test)
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +20,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
+<<<<<<< HEAD
 >>>>>>> 6c3320ed438cdcbe8d3fad9189be3dcec6653b05
+=======
+>>>>>>> parent of 17b77ef (test)
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.Getter;
@@ -49,10 +56,6 @@ public class CarPost {
 
   @OneToMany(mappedBy = "carPost", cascade = CascadeType.ALL, orphanRemoval = true)
   private List<CarImages> carImages;
-
-  @OneToMany(mappedBy = "postId", cascade = CascadeType.ALL, orphanRemoval = true)
-  private List<Likes> likes;
-
 
 
   @Column(updatable = false)

@@ -2,21 +2,15 @@
 
     margin: 0px;
     padding: 0px;
-    margin: 0 auto;
     justify-content: center;
     align-items: center;
 }
-.membership{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 h2{
     font-size: 30px;
 }
 .form_membership {
-    width: 450px;
+    width: 400px;
     justify-content: center;
     align-items: center;
     border: 2px solid black;
@@ -40,15 +34,10 @@ input{
     background-color: orange(256, 256, 256, 0.05);
     border: 1px solid orange;
     color: black;
-}
-.form-group{
-    width: 100%;
-    height: 64px;
-    box-sizing: border-box;
-    border: 1px solid black;
+
+
 }
 input {
-
     height: 20px;
 }
 button{
@@ -88,3 +77,4 @@ button{
     background-color: red;
     justify-content: center;
 } */
+
