@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
@@ -49,7 +50,7 @@ public class User {
   @Column(nullable = false, length = 20)
   private String userState;
 
-  @Column
+  @Lob
   private String userImagesURL;
 
   @OneToMany(mappedBy = "userId")

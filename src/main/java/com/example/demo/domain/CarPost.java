@@ -56,6 +56,9 @@ public class CarPost {
   private LocalDateTime updatedAt;
   private LocalDateTime deletedAt;
 
+
+
+
   @PrePersist
   @PreUpdate
   protected void onUpdateTimestamp() {
@@ -66,5 +69,15 @@ public class CarPost {
     }
   }
 
-
+  public CarPost(String carModel, String brand, String carType, String carYear, int mileage,
+      int price, String displacement, String color) {
+    this.carModel = carModel;
+    this.brand = brand;
+    this.carType = carType;
+    this.carYear = carYear;
+    this.mileage = mileage;
+    this.price = price;
+    this.displacement = displacement;
+    this.color = color;
+  }
 }

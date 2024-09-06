@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.header.writers.frameoptions.XFrameOptionsHeaderWriter;
@@ -13,22 +14,68 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 
-@Configuration // 스프링의 환경 설정 파일
-@EnableWebSecurity // 모든 요청 URL이 스프링 시큐리티 제어를 받도록 만듬
-@EnableMethodSecurity(prePostEnabled=true) // 로그인 여부를 판별할 때 사용한 @PreAuthorize 애너테이션을 사용하기 위해 반드시 필요한 설정
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+@Configuration
+@EnableWebSecurity
+@EnableMethodSecurity(prePostEnabled=true)
 public class SecurityConfig {
-	@Bean           // > 모든 요청 URL에 이 클래스가 필터로 적용되어 URL별로 특별한 설정을 할 수 있음				// > 다음은 인증되지 않은 모든 페이지의 요청을 허락
-	SecurityFilterChain filterChain(HttpSecurity http) throws Exception {							// > 로그인하지 않더라도 모든 페이지에 접근
-		http.authorizeHttpRequests((authorizeHttpRequests)->authorizeHttpRequests.requestMatchers(new AntPathRequestMatcher("/**")).permitAll()).csrf((csrf)->csrf.ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))).headers((headers)->headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))).formLogin((formLogin)->formLogin.loginPage("/user/login").defaultSuccessUrl("/")).logout((logout)->logout.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout")).logoutSuccessUrl("/").invalidateHttpSession(true));
-		return http.build();
-	}
-	@Bean
-	PasswordEncoder passwordEncoder() { // BCryptPasswordEncoder의 인터페이스
-		return new BCryptPasswordEncoder();
-	}
-	@Bean	// > 사용자 인증 시 앞에서 작성한 UserSecurityService와 PasswordEncoder를 내부적으로 사용하여 인증과 권한 부여 프로세스를 처리
-	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-	throws Exception{
-		return authenticationConfiguration.getAuthenticationManager();
-	}
+
+   @Bean
+   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+      http
+            .authorizeHttpRequests(authorizeHttpRequests ->
+                  authorizeHttpRequests
+                        .requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/docs/**").permitAll()
+                        .requestMatchers("/**").permitAll()
+            )
+            .csrf(csrf ->
+                  csrf
+                        //.ignoringRequestMatchers("/h2-console/**")
+                        .ignoringRequestMatchers("/**")
+            )
+            .headers(headers ->
+                  headers.addHeaderWriter(new XFrameOptionsHeaderWriter(XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))
+            )
+            .formLogin(formLogin ->
+                  formLogin
+                        .loginPage("/user/login")
+                        .defaultSuccessUrl("/")
+            )
+            .logout(logout ->
+                  logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+                        .logoutSuccessUrl("/")
+                        .invalidateHttpSession(true)
+            )
+            .cors(Customizer.withDefaults());
+      return http.build();
+   }
+
+   // CORS 설정을 위한 Bean 생성
+   @Bean
+   public CorsFilter corsFilter() {
+      UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      CorsConfiguration config = new CorsConfiguration();
+
+      config.setAllowCredentials(true);
+      config.addAllowedOrigin("http://127.0.0.1:5500"); // 모든 출처 허용 (프로덕션 환경에서는 특정 도메인만 허용하는 것이 좋습니다)
+      config.addAllowedHeader("*"); // 모든 헤더 허용
+      config.addAllowedMethod("*"); // 모든 HTTP 메서드 허용 (GET, POST, PUT, DELETE 등)
+
+      source.registerCorsConfiguration("/**", config);
+      return new CorsFilter(source);
+   }
+
+   @Bean
+   public PasswordEncoder passwordEncoder() {
+      return new BCryptPasswordEncoder();
+   }
+
+   @Bean
+   public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+      return authenticationConfiguration.getAuthenticationManager();
+   }
 }

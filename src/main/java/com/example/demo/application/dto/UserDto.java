@@ -5,20 +5,18 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+@NoArgsConstructor
 @Getter
 @Setter
 public class UserDto {
 	@Size(min=3,max=25) // 문자열 길이
 	@NotEmpty(message="사용자ID는 필수항목입니다.")
-	private String userid;
+	private String userId;
 
 	@NotEmpty(message="비밀번호는 필수항목입니다.")
-	private String password1; // ‘비밀번호’
-
-	@NotEmpty(message="비밀번호는 확인은 필수항목입니다.")
-	private String password2; // ‘비밀번호 확인’
+	private String password; // ‘비밀번호’
 
 	@NotEmpty(message="이메일은 필수항목입니다.")
 	@Email
@@ -33,8 +31,21 @@ public class UserDto {
 	@NotEmpty(message="이름은 필수항목입니다.")
 	private String userName;
 
-	public UserDto(String userid) {
-		this.userid = userid;
+	private String userImagesURL;
+
+	public UserDto(String userId) {
+		this.userId = userId;
+	}
+
+	public UserDto(String userId, String password, String email, String phoneNumber, String userState,
+			String userName, String userImagesURL) {
+		this.userId = userId;
+		this.password = password;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.userState = userState;
+		this.userName = userName;
+		this.userImagesURL = userImagesURL;
 	}
 
 

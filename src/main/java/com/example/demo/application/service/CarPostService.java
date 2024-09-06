@@ -1,5 +1,6 @@
 package com.example.demo.application.service;
 
+import com.example.demo.application.dto.carPostDto.CarPostCreateRequest;
 import com.example.demo.application.dto.carPostDto.CarPostDetailsPageReadResponse;
 import com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse;
 import com.example.demo.application.dto.carPostDto.CarPostMyPageReadResponse;
@@ -62,7 +63,19 @@ public class CarPostService {
     return carPostRepository.findCarPostsByUserId(userId);
   }
 
-  public List<CarPost> getA (){
-    return carPostRepository.findAll();
+  public CarPost createPost(CarPostCreateRequest c) {
+
+    CarPost carPost = new CarPost(c.getCarModel(),
+        c.getBrand(),
+        c.getCarType(),
+        c.getCarYear(),
+        c.getMileage(),
+        c.getPrice(),
+        c.getDisplacement(),
+        c.getColor());
+    return carPostRepository.save(carPost);
+
   }
+
+
 }
