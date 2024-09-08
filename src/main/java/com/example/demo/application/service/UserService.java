@@ -31,7 +31,9 @@ public class UserService {
 		user.setUserState(userState);
 		user.setUserName(userName);
 		user.setUserImagesURL(userImagesURL);
-
+//		user.setCreatedAt(createdAt);
+//		user.setUpdatedAt(updatedAt);
+//		user.setDeletedAt(deletedAt);
 
 		this.userRepository.save(user);
 		User savedUser = this.userRepository.save(user);

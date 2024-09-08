@@ -16,4 +16,3 @@ public class CarPostMyPageReadResponse {
     private LocalDateTime createdAt;
 
 }
-
