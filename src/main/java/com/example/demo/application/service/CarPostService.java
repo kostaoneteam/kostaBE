@@ -26,11 +26,10 @@ public class CarPostService {
     private final LikesRepository likesRepository;
 
     public List<CarPostMainPageReadResponse> getAll(int limit,int offset) {
-
-        Pageable pageable = PageRequest.of(offset / limit, limit); // 페이지 번호와 페이지 크기 설정
+        Pageable pageable = PageRequest.of(offset / limit, limit);
         Page<CarPostMainPageReadResponse> page = carPostRepository.findPostsWithFirstImage(pageable);
-        return page.getContent(); // 페이지에서 내용만 추출
-    }
+        return page.getContent();
+        }
 
 
     public CarPostDetailsPageReadResponse getCarPostDetails(Long carPostId) {

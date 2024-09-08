@@ -12,7 +12,7 @@ import lombok.Setter;
 public class CarPostMainPageReadResponse {
   private Long id;
   private String carModel;
-  private String brand;
+  private String carYear;
   private String carType;
   private int mileage;
   private int price;

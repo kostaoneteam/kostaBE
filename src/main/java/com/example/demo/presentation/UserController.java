@@ -1,10 +1,12 @@
 package com.example.demo.presentation;
 
-import com.example.demo.DataNotFoundException;
 import com.example.demo.application.dto.UserDto;
 import com.example.demo.application.dto.userDto.LoginDto;
+import com.example.demo.application.service.CarPostService;
 import com.example.demo.application.service.UserService;
 import jakarta.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 	private final UserService userService;
+	private final CarPostService carPostService;
 
 	/* @GetMapping("/signup") // URL이 GET으로 요청되면 회원 가입을 위한 템플릿을 렌더링
 	public String signUpPage(UserDto userDto) {
@@ -39,16 +42,21 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser( @RequestBody LoginDto loginDto) {
-		boolean isAuthenticated = userService.authenticate(loginDto.getUserId(),loginDto.getPassword());
+	public ResponseEntity<Map<String, Object>> loginUser( @RequestBody LoginDto loginDto) {
+		Map<String, Object> response = new HashMap<>();
+		LoginDto isAuthenticated = userService.authenticate(loginDto);
 		try {
-			if (isAuthenticated) {
-				return ResponseEntity.ok("로그인 성공");
+			if (isAuthenticated != null) {
+				response.put("userState", isAuthenticated.getUserState());
+				response.put("success", true);
+				response.put("userId", isAuthenticated.getUserId());
+				return ResponseEntity.ok(response);
 			} else {
-				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디나 비밀번호가 일치하지 않습니다.");
+				response.put("success", false);
+				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
 			}
 		} catch (Exception e) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("서버 에러 발생");
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
 		}
 	}
 }

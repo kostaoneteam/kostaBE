@@ -1,4 +1,5 @@
 package com.example.demo.application.service;
+import com.example.demo.application.dto.userDto.LoginDto;
 import java.util.Optional;
 
 import com.example.demo.DataNotFoundException;
@@ -7,6 +8,7 @@ import com.example.demo.domain.User;
 import com.example.demo.infrastructure.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -61,13 +63,21 @@ public class UserService {
 		);
 	}
 
-	public boolean authenticate(String userId, String rawPassword) {
-		Optional<User> userOptional = userRepository.findByUserId(userId);
-		if (userOptional.isPresent()) {
-			User user = userOptional.get();
-			return passwordEncoder.matches(rawPassword, user.getPassword());
-		}
-		return false;
+	public LoginDto authenticate(LoginDto loginDto) {
+	    Optional<User> userOptional = userRepository.findByUserId(loginDto.getUserId());
+	    if (userOptional.isPresent()) {
+	        User user = userOptional.get();
+	        if (passwordEncoder.matches(loginDto.getPassword(), user.getPassword())) {
+	            // 인증 성공 시 LoginDto 객체를 반환
+	            LoginDto resultDto = new LoginDto();
+	            resultDto.setId(user.getId());
+	            resultDto.setUserId(user.getUserId());
+	            resultDto.setUserState(user.getUserState()); // 사용자 상태 추가
+
+	            return resultDto;
+	        }
+	    }
+	    return null; // 인증 실패 시 null 반환 (혹은 다른 적절한 처리를 할 수 있음)
 	}
 }
 

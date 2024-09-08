@@ -29,6 +29,7 @@ public class CarPostController {
   @GetMapping("/main")
   public List<CarPostMainPageReadResponse> allPost(@RequestParam int limit,
       @RequestParam int offset) {
+
     return carPostService.getAll(limit, offset);
   }
 

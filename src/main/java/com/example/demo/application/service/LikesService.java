@@ -1,12 +1,14 @@
 package com.example.demo.application.service;
 
 import com.example.demo.application.dto.LikesDto;
+import com.example.demo.application.dto.carPostDto.CarPostMyPageReadResponse;
 import com.example.demo.domain.CarPost;
 import com.example.demo.domain.Likes;
 import com.example.demo.domain.User;
 import com.example.demo.infrastructure.CarPostRepository;
 import com.example.demo.infrastructure.LikesRepository;
 import com.example.demo.infrastructure.UserRepository;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +44,7 @@ public class LikesService {
     public boolean isLiked(LikesDto likesDto) {
         return likesRepository.existsByUserIdAndPostId(likesDto.getUserId(), likesDto.getPostId());
     }
+
+
 }
 

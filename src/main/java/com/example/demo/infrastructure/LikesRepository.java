@@ -22,4 +22,5 @@ public interface LikesRepository extends JpaRepository<Likes, Long> {
 
     List<Likes> findByPoseId_Id(Long postId);
 
+
 }
