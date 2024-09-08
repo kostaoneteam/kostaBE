@@ -2,7 +2,7 @@ package com.example.demo.presentation;
 
 import com.example.demo.DataNotFoundException;
 import com.example.demo.application.dto.UserDto;
-/*import com.example.demo.application.dto.userDto.LoginDto;*/
+import com.example.demo.application.dto.userDto.LoginDto;
 import com.example.demo.application.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -39,17 +39,14 @@ public class UserController {
 	}
 
 	@PostMapping("/login")
-	public ResponseEntity<String> loginUser(@Valid @RequestBody LoginDto loginDto) {
-		System.out.println(loginDto);
+	public ResponseEntity<String> loginUser( @RequestBody LoginDto loginDto) {
+		boolean isAuthenticated = userService.authenticate(loginDto.getUserId(),loginDto.getPassword());
 		try {
-			boolean isAuthenticated = userService.authenticate(loginDto.getUserId(), loginDto.getPassword());
 			if (isAuthenticated) {
 				return ResponseEntity.ok("로그인 성공");
 			} else {
 				return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디나 비밀번호가 일치하지 않습니다.");
 			}
-		} catch (DataNotFoundException e) {
-			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("로그인 실패: 아이디가 존재하지 않습니다.");
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("서버 에러 발생");
 		}

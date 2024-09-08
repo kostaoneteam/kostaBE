@@ -61,7 +61,7 @@ public class SecurityConfig {
 		CorsConfiguration config = new CorsConfiguration();
 
 		config.setAllowCredentials(true);
-		config.addAllowedOrigin("http://127.0.0.1:5500"); // 모든 출처 허용 (프로덕션 환경에서는 특정 도메인만 허용하는 것이 좋습니다)
+		config.addAllowedOrigin("http://localhost:63342"); // 모든 출처 허용 (프로덕션 환경에서는 특정 도메인만 허용하는 것이 좋습니다)
 		config.addAllowedHeader("*"); // 모든 헤더 허용
 		config.addAllowedMethod("*"); // 모든 HTTP 메서드 허용 (GET, POST, PUT, DELETE 등)
 

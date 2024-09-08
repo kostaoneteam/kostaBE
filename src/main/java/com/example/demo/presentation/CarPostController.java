@@ -45,10 +45,6 @@ public class CarPostController {
   }
 
 
-<<<<<<< HEAD
-}
-=======
-<<<<<<< HEAD
   @PostMapping("/post")
   public ResponseEntity<?> createCarPost(@RequestBody CarPostCreateRequest carPost) {
     try {
@@ -63,7 +59,4 @@ public class CarPostController {
     }
   }
 }
-=======
-}*/
->>>>>>> 87890a45762d8a607859a928602af5b570703cb1
->>>>>>> 3822ec62b8b7a98af8fc56e35dac5d5bee5ca544
+
