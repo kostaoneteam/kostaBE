@@ -79,5 +79,9 @@ public class UserService {
 	    }
 	    return null; // 인증 실패 시 null 반환 (혹은 다른 적절한 처리를 할 수 있음)
 	}
+
+	public User findById(String userId) {
+     return userRepository.findByUserId(userId).orElseThrow(() -> new RuntimeException("User not found"));
+ }
 }
 

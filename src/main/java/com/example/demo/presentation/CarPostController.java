@@ -6,8 +6,10 @@ import com.example.demo.application.dto.carPostDto.CarPostDetailsPageReadRespons
 import com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse;
 import com.example.demo.application.dto.carPostDto.CarPostMyPageReadResponse;
 import com.example.demo.application.service.CarPostService;
+import com.example.demo.application.service.UserService;
 import com.example.demo.domain.CarImages;
 import com.example.demo.domain.CarPost;
+import com.example.demo.domain.User;
 import com.example.demo.infrastructure.CarImageRepository;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -42,6 +44,7 @@ public class CarPostController {
 
   private final CarPostService carPostService;
   private final CarImageRepository carImageRepository;
+  private final UserService userService;
 
   //메인페이지
   @GetMapping("/main")
@@ -89,29 +92,25 @@ public class CarPostController {
           carPost.setPrice(request.getPrice());
           carPost.setDisplacement(request.getDisplacement());
           carPost.setColor(request.getColor());
+          User user = userService.findById(request.getUserId()); // UserService를 사용하여 User 객체 조회
+          carPost.setUserId(user); // User 객체 설정
 
           // CarPost 저장
           CarPost savedCarPost = carPostService.saveCarPost(carPost);
 
-          // Base64 이미지 리스트 처리
           List<String> base64Images = request.getCarImagesURL();
           if (base64Images == null) {
               base64Images = new ArrayList<>(); // base64Images가 null인 경우 빈 리스트로 초기화
           }
 
           for (String base64Image : base64Images) {
-              String[] parts = base64Image.split(","); // Base64 문자열에서 실제 데이터 부분만 추출
-              if (parts.length > 1) {
-                  String imageBase64 = parts[1]; // Base64 인코딩된 이미지 데이터
+              CarImages carImage = new CarImages();
+              carImage.setCarPost(savedCarPost); // CarPost와 연관 설정
+              carImage.setCarImagesURL(base64Image); // MIME 타입 포함한 Base64 인코딩된 이미지 데이터 저장
+              carImage.setCreatedAt(LocalDateTime.now()); // 생성 일시 설정
 
-                  CarImages carImage = new CarImages();
-                  carImage.setCarPost(savedCarPost); // CarPost와 연관 설정
-                  carImage.setCarImagesURL(imageBase64); // Base64 인코딩된 이미지 데이터 저장
-                  carImage.setCreatedAt(LocalDateTime.now()); // 생성 일시 설정
-
-                  // CarImages 저장
-                  carPostService.saveCarImages(carImage);
-              }
+              // CarImages 저장
+              carPostService.saveCarImages(carImage);
           }
 
           // JSON 형식으로 응답
@@ -125,6 +124,5 @@ public class CarPostController {
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
       }
   }
-
 }
 

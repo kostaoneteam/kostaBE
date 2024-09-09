@@ -19,6 +19,7 @@ public class CarPostCreateRequest {
   private int price;
   private String displacement;
   private String color;
+  private String userId;
   private List<String> carImagesURL;
 
 }
