@@ -1,5 +1,6 @@
 package com.example.demo.application.dto.carPostDto;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,6 @@ public class CarPostCreateRequest {
   private int price;
   private String displacement;
   private String color;
+  private List<String> carImagesURL;
+
 }

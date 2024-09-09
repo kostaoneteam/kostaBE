@@ -16,4 +16,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query("SELECT new com.example.demo.application.dto.userDto.UserDetailsReadResponse(u.userName, u.phoneNumber, u.userImagesURL) " +
            "FROM User u JOIN u.carPost cp WHERE cp.id = :carPostId")
     List<UserDetailsReadResponse> findUserByCarPostId(@Param("carPostId") Long carPostId);
+
+
 }

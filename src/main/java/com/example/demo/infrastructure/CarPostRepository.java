@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.core.parameters.P;
 
 public interface CarPostRepository extends JpaRepository<CarPost, Long> {
 
@@ -53,4 +54,26 @@ public interface CarPostRepository extends JpaRepository<CarPost, Long> {
   List<CarPostMyPageReadResponse> findCarPostsByUserId(@Param("userId") String userId);
 
 
+
+  @Query("SELECT new com.example.demo.application.dto.carPostDto.CarPostMainPageReadResponse(" +
+          "cp.id, cp.carModel, cp.carYear, cp.carType, cp.mileage, cp.price, cp.displacement, cp.color, " +
+          "CAST(cp.userId.userId AS string), " +
+          "MIN(ci.carImagesURL), COUNT(l)) " +
+          "FROM CarPost cp " +
+          "LEFT JOIN cp.carImages ci " +
+          "LEFT JOIN cp.likes l " +
+          "WHERE (:brand IS NULL OR cp.brand IN :brand) " +
+          "AND (:carType IS NULL OR cp.carType IN :carType) " +
+          "AND (:displacement IS NULL OR cp.displacement IN :displacement) " +
+          "AND (:color IS NULL OR cp.color IN :color) " +
+          "AND (:carYear IS NULL OR cp.carYear IN :carYear) " +
+          "GROUP BY cp.id, cp.carModel, cp.brand, cp.carType, cp.mileage, cp.price, cp.displacement, cp.color, cp.userId " +
+          "ORDER BY cp.createdAt DESC")
+  Page<CarPostMainPageReadResponse> findByFiltersWithPagination(
+      @Param("brand") List<String> brand,
+      @Param("carType") List<String> carType,
+      @Param("displacement") List<String> displacement,
+      @Param("color") List<String> color,
+      @Param("carYear") List<String> carYear,
+      Pageable pageable);
 }
